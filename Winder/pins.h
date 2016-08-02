@@ -10,4 +10,8 @@
 // Define our analog pot input pin
 #define  SPEED_PIN 0
 
+#define SHUTTLE_LED A1
+#define SPOOL_LED A2
+
+
 

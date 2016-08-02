@@ -11,6 +11,8 @@ AccelStepper shuttle(AccelStepper::DRIVER, SHUTTLE_STEP, SHUTTLE_DIR);
 float spoolSpeed;
 float shuttleSpeed;
 
+volatile int toggle_count = 0;
+
 uint8_t i2c_test_data[3];
 
 ISR(TIMER1_COMPA_vect) { // timer1 interrupt
@@ -18,6 +20,15 @@ ISR(TIMER1_COMPA_vect) { // timer1 interrupt
 	if (running) {
 		spool.runSpeedToPosition();
 		shuttle.runSpeedToPosition();
+
+		toggle_count++;
+
+		if(toggle_count >= 2500 ){
+			toggle_count = 0;
+
+			digitalWrite(SHUTTLE_LED, !digitalRead(SHUTTLE_LED));
+			digitalWrite(SPOOL_LED, !digitalRead(SPOOL_LED));
+		}
 	}
 }
 
@@ -28,9 +39,13 @@ void setup() {
 
 	pinMode(SPOOL_ENABLE, OUTPUT);
 	pinMode(SHUTTLE_ENABLE, OUTPUT);
+	pinMode(SPOOL_LED, OUTPUT);
+	pinMode(SHUTTLE_LED, OUTPUT);
 
 	digitalWrite(SPOOL_ENABLE, LOW);
 	digitalWrite(SHUTTLE_ENABLE, LOW);
+	digitalWrite(SPOOL_LED, LOW);
+	digitalWrite(SHUTTLE_LED, LOW);
 
 	spool.setMaxSpeed(MAX_SPEED);
 	shuttle.setMaxSpeed(MAX_SPEED);
@@ -109,13 +124,17 @@ void loop() {
 
 	if (motor_status & 0x01) {
 		digitalWrite(SPOOL_ENABLE, LOW);
+		digitalWrite(SPOOL_LED, LOW);
 	} else {
 		digitalWrite(SPOOL_ENABLE, HIGH);
+		digitalWrite(SPOOL_LED, HIGH);
 	}
 	if (motor_status & 0x02) {
 		digitalWrite(SHUTTLE_ENABLE, LOW);
+		digitalWrite(SHUTTLE_LED, LOW);
 	} else {
 		digitalWrite(SHUTTLE_ENABLE, HIGH);
+		digitalWrite(SHUTTLE_LED, HIGH);
 	}
 }
 
