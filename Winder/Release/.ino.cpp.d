@@ -12,7 +12,7 @@
  /home/john/eclipseArduino/arduinoPlugin/packages/arduino/hardware/avr/1.6.12/variants/eightanaloginputs/pins_arduino.h \
  /home/john/eclipseArduino/arduinoPlugin/packages/arduino/hardware/avr/1.6.12/variants/eightanaloginputs/../standard/pins_arduino.h \
  ../Winder.h \
- /home/john/eclipseArduino/workspace/Winder/libraries/AccelStepper/AccelStepper.h \
+ /home/john/git/arduino_winder/Winder/libraries/AccelStepper/AccelStepper.h \
  /home/john/eclipseArduino/arduinoPlugin/packages/arduino/hardware/avr/1.6.12/libraries/Wire/src/Wire.h \
  /home/john/eclipseArduino/arduinoPlugin/packages/arduino/hardware/avr/1.6.12/cores/arduino/Stream.h \
  ../pins.h ../Winder.ino
@@ -43,7 +43,7 @@
 
 ../Winder.h:
 
-/home/john/eclipseArduino/workspace/Winder/libraries/AccelStepper/AccelStepper.h:
+/home/john/git/arduino_winder/Winder/libraries/AccelStepper/AccelStepper.h:
 
 /home/john/eclipseArduino/arduinoPlugin/packages/arduino/hardware/avr/1.6.12/libraries/Wire/src/Wire.h:
 
