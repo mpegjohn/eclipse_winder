@@ -3,7 +3,7 @@
 
 my @abbr = qw(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec);
 
-my @day = qw(Sun Mon Tues Wed Thurs Fri Sat);
+my @day = qw(Sun Mon Tue Wed Thu Fri Sat);
 
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 
@@ -26,7 +26,7 @@ print $HEADER "#ifndef VERSION_H\n#define VERSION_H\n";
 
 print $HEADER "const char git_sha[] = \"$git_sha\"\;\n";
 
-printf $HEADER  "const char build_date[] = \"%s %s %d %d:%d:%d %d\";\n", $day_of_week, $month, $mday, $hour, $min, $sec, $year;
+printf $HEADER  "const char build_date[] = \"%s %s %02d %02d:%02d:%02d %d\";\n", $day_of_week, $month, $mday, $hour, $min, $sec, $year;
 
 #print $HEADER "const char build_date[] = \"$now\"\;";
 

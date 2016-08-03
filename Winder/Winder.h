@@ -73,6 +73,7 @@ enum modes {
 	runningMode,
 	getStatusMode,
 	getMotorStatusMode,
+	getVersionMode,
 	pauseMode
 };
 

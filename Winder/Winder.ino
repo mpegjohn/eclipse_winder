@@ -263,6 +263,13 @@ void requestEvent() {
 		request_mode = idleMode;
 	} else if (request_mode == getMotorStatusMode) {
 		Wire.write(motor_status);
+	} else if (request_mode == getVersionMode) {
+
+		size_t len = strlen(git_sha);
+
+		Wire.write(git_sha, len);
+
+
 	}
 }
 
